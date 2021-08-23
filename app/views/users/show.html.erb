@@ -1,0 +1,34 @@
+<h1>マイページ</h1>
+
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="card">
+      <div class="card-header">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 300 }) %>" alt="">
+      </div>
+      <div class="card-body">
+        <h3 class="card-title"><%= @user.name %></h3>
+      </div>
+    </div>
+  </aside>
+  <div class="offset-sm-1 col-sm-7">
+    <% @posts.each do |post| %>
+      <div>
+        <p><img src="<%= post.photo %>" width="300"></p>
+        <p><%= post.content %></p>
+        <%= render 'likes/favorite_button', post: post %>
+      </div>
+      
+      
+      <% if current_user == post.user %>      
+        <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning' %>
+        <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-warning btn-sm' %>
+      <% end %>
+      <br>
+    <% end %>
+  </div>
+    <div class="offset-md-4 col-sm-8">
+      <br>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+</div>

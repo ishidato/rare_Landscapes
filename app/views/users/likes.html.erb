@@ -1,0 +1,9 @@
+<h1>お気に入り一覧</h1>
+
+<div class="row">
+  <div class="offset-sm-4 col-sm-8">
+      <a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>"></a>
+    </ul>
+    <%= render 'posts/posts', posts: @favorites %>
+  </div>
+</div>

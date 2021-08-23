@@ -1,0 +1,14 @@
+<% if posts.any? %>
+  <ul class="list-unstyled mt-2">
+    <% posts.each do |post| %>
+        <div>
+          <p><img src="<%= post.photo %>" width="300"></p>
+          <p><%= post.content %></p>
+        </div>
+        <div>
+          <%= render 'likes/favorite_button', post: post %></br>
+        </div>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

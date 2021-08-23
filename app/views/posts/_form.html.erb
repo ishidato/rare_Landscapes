@@ -1,0 +1,27 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mt-4 mb-4">
+    <%= form.label :photo, '写真' %>
+    <%= form.file_field :photo %>
+  </div>
+  
+  <div class="content mb-4" >
+    <%= form.label :content, 'コメント'  %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions mt-4">
+    <%= form.submit %>
+  </div>
+<% end %>
