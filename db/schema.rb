@@ -39,7 +39,5 @@ ActiveRecord::Schema.define(version: 2021_08_22_034705) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "favorites", "posts"
-  add_foreign_key "favorites", "users"
   add_foreign_key "posts", "users"
 end
