@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   before_action :currect_user, only: [:destroy]
 
 
+
   # GET /posts/1 or /posts/1.json
   def show
   end
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post }
-        format.json { render :show, status: :ok, location: @post }
+        format.json { render :show, status: :ok, location: root_url }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -49,7 +50,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to root_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end
