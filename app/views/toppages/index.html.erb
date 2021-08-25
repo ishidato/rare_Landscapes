@@ -12,9 +12,9 @@
       </div>
       <div class="col-sm-8">
         <div class="p-2">
-          <p><img src="<%= post.photo %>" width="300"></p>
+          <p><img src="<%= post.photo %>" width="300" alt=""></p>
           <p><%= post.content %></p>
-          <%= render 'likes/favorite_button', post: post %><br>
+          <%= render 'likes/favorite_button', post: post %>
         </div>
       </div>  
       
@@ -23,14 +23,6 @@
       <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
-
-  <table>
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
   
 <% else %>
   <div class="text-center text-black mt-5 mx-5">

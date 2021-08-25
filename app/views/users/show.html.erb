@@ -14,7 +14,7 @@
   <div class="offset-sm-1 col-sm-7">
     <% @posts.each do |post| %>
       <div class="p-2">
-        <img src="<%= post.photo %>" width="300">
+        <img src="<%= post.photo %>" width="300" alt="">
         <p><%= post.content %></p>
         <%= render 'likes/favorite_button', post: post %>
         <% if current_user == post.user %>      
