@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        flash[:success] = '編集が完了しました。'
         format.html { redirect_to @post }
         format.json { render :show, status: :ok, location: root_url }
       else
@@ -50,7 +51,8 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "Post was successfully destroyed." }
+      flash[:success] = '削除しました。'
+      format.html { redirect_to root_url}
       format.json { head :no_content }
     end
   end
