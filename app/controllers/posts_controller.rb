@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[ show edit update destroy ]
   before_action :require_user_logged_in
   before_action :currect_user, only: [:edit, :update, :destroy]
 
